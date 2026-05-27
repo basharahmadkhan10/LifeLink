@@ -52,8 +52,7 @@
                             <div class="relative mb-6 transform transition-transform group-hover:scale-105 duration-300">
                                 <!-- Glow effect -->
                                 <div class="absolute -inset-4 bg-red-500/20 dark:bg-red-500/10 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                <img src="{{ asset('images/logo.png') }}" alt="LifeLink Logo" class="w-20 h-20 object-contain drop-shadow-xl relative z-10 dark:hidden">
-                                <img src="{{ asset('images/logo-dark.png') }}" alt="LifeLink Logo" class="w-20 h-20 object-contain drop-shadow-xl relative z-10 hidden dark:block">
+                                <img src="{{ asset('images/logo.png') }}" alt="LifeLink Logo" class="w-20 h-20 object-contain drop-shadow-xl relative z-10">
                             </div>
                             <span class="font-extrabold text-3xl tracking-tight text-gray-900 dark:text-white">LifeLink</span>
                         </a>
