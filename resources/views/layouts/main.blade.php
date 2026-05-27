@@ -55,8 +55,7 @@
                     <div class="flex justify-between h-16">
                         <div class="flex items-center">
                             <a href="{{ route('welcome') }}" class="flex items-center space-x-2">
-                                <img src="{{ asset('images/logo.png') }}" alt="LifeLink" class="w-8 h-8 object-contain drop-shadow-sm dark:hidden">
-                                <img src="{{ asset('images/logo-dark.png') }}" alt="LifeLink" class="w-8 h-8 object-contain drop-shadow-sm hidden dark:block">
+                                <img src="{{ asset('images/logo.png') }}" alt="LifeLink" class="w-8 h-8 object-contain drop-shadow-sm">
                                 <span class="font-bold text-xl tracking-tight">LifeLink</span>
                             </a>
                             
