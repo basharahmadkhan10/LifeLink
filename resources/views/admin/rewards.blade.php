@@ -5,7 +5,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center mb-8">
             <div>
-                <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight flex items-center gap-3">
+                <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                     Reward Manager
                 </h1>
                 <p class="text-gray-500 dark:text-gray-400 mt-1">Identify your top donors and distribute physical rewards.</p>
@@ -42,7 +42,7 @@
                                 #{{ $rank }}
                             </td>
                             <td class="p-4 px-6">
-                                <div class="font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                                <div class="font-bold text-gray-900 dark:text-white">
                                     {{ $donor->name }}
                                 </div>
                                 <div class="text-xs text-gray-500 dark:text-gray-400">{{ $donor->phone }} • {{ $donor->city }}</div>
@@ -71,7 +71,7 @@
                     </tbody>
                 </table>
             </div>
-            
+
             @if($donors->hasPages())
                 <div class="p-6 border-t border-gray-100 dark:border-white/5">
                     {{ $donors->links() }}

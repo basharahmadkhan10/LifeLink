@@ -9,9 +9,15 @@
                 <a href="{{ route('admin.users') }}" class="px-4 py-2 bg-gray-200 hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white font-bold rounded-xl transition">
                     User Management
                 </a>
-                <a href="{{ route('admin.rewards') }}" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-md transition flex items-center gap-2">
-                    🎁 Reward Manager
+                <a href="{{ route('admin.rewards') }}" class="px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-md transition">
+                    Reward Manager
                 </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="px-4 py-2 bg-gray-900 hover:bg-black dark:bg-gray-700 dark:hover:bg-gray-600 text-white font-bold rounded-xl transition">
+                        Logout
+                    </button>
+                </form>
             </div>
         </div>
 
