@@ -150,11 +150,10 @@
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-gradient-to-r from-red-600 to-red-700 dark:from-[#0a0a0a] dark:to-[#0f0f0f] rounded-3xl p-10 md:p-16 text-center relative overflow-hidden shadow-2xl border border-red-500/20 dark:border-white/5">
             
-            
             <h2 class="text-3xl md:text-5xl font-extrabold text-white mb-6 relative z-10 tracking-tight">Ready to save lives?</h2>
             <p class="text-red-100 dark:text-gray-300 text-lg md:text-xl mb-10 max-w-xl mx-auto relative z-10">Registration takes less than two minutes. Once registered, you will appear in our search database and can be contacted during emergencies.</p>
             
-            <a href="{{ route('register') }}" class="inline-block px-10 py-4 bg-white text-red-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 relative z-10">
+            <a href="{{ route('register') }}" class="inline-block px-10 py-4 bg-white text-red-600 dark:bg-red-600 dark:text-white font-bold text-lg rounded-xl hover:bg-gray-100 dark:hover:bg-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 relative z-10">
                 Become a Donor Today
             </a>
         </div>
