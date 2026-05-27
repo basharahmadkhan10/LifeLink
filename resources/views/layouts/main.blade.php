@@ -127,7 +127,7 @@
             <footer class="bg-white dark:bg-[#050505] border-t border-gray-200 dark:border-white/5 mt-auto transition-colors duration-200">
                 <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
                     <p class="text-center text-gray-500 dark:text-gray-400 text-sm">
-                        &copy; {{ date('Y') }} LifeLink Blood Donor Platform. Built with ❤️ for humanity.
+                        &copy; {{ date('Y') }} LifeLink Blood Donor Platform. Built for humanity.
                     </p>
                 </div>
             </footer>

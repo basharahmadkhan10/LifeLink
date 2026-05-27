@@ -61,8 +61,8 @@
             
             <!-- Gamification Text -->
             <div>
-                <div class="inline-flex items-center px-4 py-2 rounded-full bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-500 font-bold text-sm mb-6 shadow-sm border border-yellow-200 dark:border-yellow-800/30">
-                    🏆 New Rewards Program
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-red-50 dark:bg-red-950/20 text-red-700 dark:text-red-400 font-bold text-sm mb-6 shadow-sm border border-red-200/50 dark:border-red-900/30">
+                    Rewards Program
                 </div>
                 <h2 class="text-4xl md:text-5xl font-black text-gray-900 dark:text-white mb-6 leading-tight">
                     Save Lives. <br>
@@ -112,7 +112,7 @@
                     
                     <div class="space-y-4">
                         <div class="bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-white/5 rounded-2xl p-4 flex items-center shadow-sm">
-                            <div class="h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20 flex items-center justify-center text-xl">👑</div>
+                            <div class="h-12 w-12 rounded-full bg-yellow-100 dark:bg-yellow-900/20 flex items-center justify-center text-md text-yellow-600 dark:text-yellow-500 font-black">1</div>
                             <div class="ml-4 flex-1">
                                 <div class="font-bold text-gray-900 dark:text-white">Sarah Jenkins</div>
                                 <div class="text-xs text-gray-500">O+ • New York</div>

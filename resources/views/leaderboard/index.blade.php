@@ -63,7 +63,6 @@
                 <div class="relative h-32 w-32 bg-gradient-to-br from-yellow-300 to-yellow-600 rounded-full border-4 border-white dark:border-[#0a0a0a] shadow-2xl flex items-center justify-center text-5xl font-black text-white">
                     {{ substr($gold->name, 0, 1) }}
                 </div>
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 text-4xl">👑</div>
                 <div class="absolute -bottom-2 -right-2 h-10 w-10 bg-yellow-500 rounded-full border-2 border-white dark:border-[#0a0a0a] flex items-center justify-center font-black text-white shadow-sm text-lg">1</div>
             </div>
             <h3 class="font-black text-2xl text-gray-900 dark:text-white text-center">{{ $gold->name }}</h3>
