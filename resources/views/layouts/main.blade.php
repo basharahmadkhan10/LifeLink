@@ -60,38 +60,66 @@
                             </a>
                             
                             <div class="hidden sm:-my-px sm:ml-10 sm:flex space-x-8">
-                                <a href="{{ route('donors.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
-                                    Find Donors
-                                </a>
-                                <a href="{{ route('leaderboard.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-red-500 transition duration-150 ease-in-out">
-                                    Leaderboard
-                                </a>
-                                <a href="{{ route('hospitals.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
-                                    Nearby Hospitals
-                                </a>
-                                @auth
-                                <a href="{{ route('inbox.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
-                                    Inbox
-                                    @php
-                                        $unreadRequests = \App\Models\DonationRequest::where('to_user_id', auth()->id())->where('status', 'pending')->count();
-                                        $activeRequestIds = \App\Models\DonationRequest::where(function ($query) {
-                                                $query->where('to_user_id', auth()->id())
-                                                      ->orWhere('from_user_id', auth()->id());
-                                            })
-                                            ->where('status', 'accepted')
-                                            ->pluck('id');
-                                        $unreadMessages = \App\Models\Message::where('receiver_id', auth()->id())
-                                            ->whereIn('donation_request_id', $activeRequestIds)
-                                            ->whereNull('read_at')
-                                            ->count();
-                                        $unreadCount = $unreadRequests + $unreadMessages;
-                                    @endphp
-                                    <span id="nav-notification-badge" class="{{ $unreadCount > 0 ? 'inline-flex' : 'hidden' }} ml-1.5 items-center justify-center h-4 w-4 rounded-full bg-red-600 text-white text-[10px] font-bold">{{ $unreadCount }}</span>
-                                </a>
-                                @endauth
-                                <a href="{{ route('emergency.create') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-red-600 dark:text-red-500 hover:text-red-800 dark:hover:text-red-400 hover:border-red-300 transition duration-150 ease-in-out">
-                                    Emergency
-                                </a>
+                                @if(auth()->check() && auth()->user()->role === 'admin')
+                                    <!-- Admin Links -->
+                                    <a href="{{ route('admin.dashboard') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Admin Dashboard
+                                    </a>
+                                    <a href="{{ route('admin.users') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Users
+                                    </a>
+                                    <a href="{{ route('admin.rewards') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Rewards
+                                    </a>
+                                    <a href="{{ route('leaderboard.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Leaderboard
+                                    </a>
+                                @elseif(auth()->check() && auth()->user()->role === 'hospital')
+                                    <!-- Hospital Links -->
+                                    <a href="{{ route('hospital.dashboard') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Hospital Dashboard
+                                    </a>
+                                    <a href="{{ route('hospitals.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Nearby Hospitals
+                                    </a>
+                                    <a href="{{ route('leaderboard.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Leaderboard
+                                    </a>
+                                @else
+                                    <!-- Regular User / Guest Links -->
+                                    <a href="{{ route('donors.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Find Donors
+                                    </a>
+                                    <a href="{{ route('leaderboard.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Leaderboard
+                                    </a>
+                                    <a href="{{ route('hospitals.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Nearby Hospitals
+                                    </a>
+                                    @auth
+                                    <a href="{{ route('inbox.index') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 transition duration-150 ease-in-out">
+                                        Inbox
+                                        @php
+                                            $unreadRequests = \App\Models\DonationRequest::where('to_user_id', auth()->id())->where('status', 'pending')->count();
+                                            $activeRequestIds = \App\Models\DonationRequest::where(function ($query) {
+                                                    $query->where('to_user_id', auth()->id())
+                                                          ->orWhere('from_user_id', auth()->id());
+                                                })
+                                                ->where('status', 'accepted')
+                                                ->pluck('id');
+                                            $unreadMessages = \App\Models\Message::where('receiver_id', auth()->id())
+                                                ->whereIn('donation_request_id', $activeRequestIds)
+                                                ->whereNull('read_at')
+                                                ->count();
+                                            $unreadCount = $unreadRequests + $unreadMessages;
+                                        @endphp
+                                        <span id="nav-notification-badge" class="{{ $unreadCount > 0 ? 'inline-flex' : 'hidden' }} ml-1.5 items-center justify-center h-4 w-4 rounded-full bg-red-600 text-white text-[10px] font-bold">{{ $unreadCount }}</span>
+                                    </a>
+                                    @endauth
+                                    <a href="{{ route('emergency.create') }}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-red-600 dark:text-red-500 hover:text-red-800 dark:hover:text-red-400 hover:border-red-300 transition duration-150 ease-in-out">
+                                        Emergency
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         

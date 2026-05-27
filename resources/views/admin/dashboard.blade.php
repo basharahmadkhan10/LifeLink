@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="bg-gray-50 dark:bg-gray-950 py-8 min-h-[calc(100vh-4rem)] transition-colors duration-200">
+<div class="bg-gray-50 dark:bg-black py-8 min-h-[calc(100vh-4rem)] transition-colors duration-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Admin Dashboard</h1>
@@ -17,19 +17,19 @@
 
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 transition-colors">
+            <div class="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 transition-colors">
                 <div class="text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Donors</div>
                 <div class="text-4xl font-black text-gray-900 dark:text-white">{{ $stats['total_donors'] ?? 0 }}</div>
             </div>
-            <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 border-l-4 border-l-blue-500 dark:border-l-blue-500 transition-colors">
+            <div class="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 border-l-4 border-l-blue-500 dark:border-l-blue-500 transition-colors">
                 <div class="text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Total Requests</div>
                 <div class="text-4xl font-black text-gray-900 dark:text-white">{{ $stats['total_requests'] ?? 0 }}</div>
             </div>
-            <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 border-l-4 border-l-yellow-500 dark:border-l-yellow-500 transition-colors">
+            <div class="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 border-l-4 border-l-yellow-500 dark:border-l-yellow-500 transition-colors">
                 <div class="text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Active Requests</div>
                 <div class="text-4xl font-black text-gray-900 dark:text-white">{{ $stats['active_requests'] ?? 0 }}</div>
             </div>
-            <div class="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 border-l-4 border-l-red-600 dark:border-l-red-600 transition-colors">
+            <div class="bg-white dark:bg-[#0a0a0a] p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 border-l-4 border-l-red-600 dark:border-l-red-600 transition-colors">
                 <div class="text-gray-500 dark:text-gray-400 text-sm font-bold uppercase tracking-wider mb-2">Emergency Requests</div>
                 <div class="text-4xl font-black text-red-600 dark:text-red-500">{{ $stats['emergency_requests'] ?? 0 }}</div>
             </div>
@@ -37,14 +37,14 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <!-- Recent Donors -->
-            <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden transition-colors">
-                <div class="px-6 py-5 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/30 flex justify-between items-center">
+            <div class="bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 overflow-hidden transition-colors">
+                <div class="px-6 py-5 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/[0.02] flex justify-between items-center">
                     <h2 class="font-bold text-lg text-gray-900 dark:text-white">Recently Registered Donors</h2>
                     <a href="{{ route('admin.users') }}" class="text-sm font-bold text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400 transition-colors">View All &rarr;</a>
                 </div>
-                <div class="divide-y divide-gray-100 dark:divide-gray-800">
+                <div class="divide-y divide-gray-100 dark:divide-white/5">
                     @forelse($recent_donors ?? [] as $donor)
-                        <div class="p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors group">
+                        <div class="p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors group">
                             <div class="flex items-center">
                                 <div class="h-12 w-12 rounded-full bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-500 flex items-center justify-center font-black text-lg border border-red-100 dark:border-red-900/50 mr-4 group-hover:scale-110 transition-transform">
                                     {{ $donor->blood_group ?? '?' }}
@@ -60,18 +60,18 @@
                         </div>
                     @empty
                         <div class="p-8 text-center text-gray-500 dark:text-gray-400">No donors found.</div>
-                    @endforelse
+                     @endforelse
                 </div>
             </div>
 
             <!-- Recent Requests -->
-            <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-800 overflow-hidden transition-colors">
-                <div class="px-6 py-5 border-b border-gray-100 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-800/30 flex justify-between items-center">
+            <div class="bg-white dark:bg-[#0a0a0a] rounded-2xl shadow-sm border border-gray-100 dark:border-white/5 overflow-hidden transition-colors">
+                <div class="px-6 py-5 border-b border-gray-100 dark:border-white/5 bg-gray-50/50 dark:bg-white/[0.02] flex justify-between items-center">
                     <h2 class="font-bold text-lg text-gray-900 dark:text-white">Recent Blood Requests</h2>
                 </div>
-                <div class="divide-y divide-gray-100 dark:divide-gray-800">
+                <div class="divide-y divide-gray-100 dark:divide-white/5">
                     @forelse($recent_requests ?? [] as $req)
-                        <div class="p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                        <div class="p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-white/[0.02] transition-colors">
                             <div>
                                 <div class="font-bold text-gray-900 dark:text-white">
                                     <span class="text-red-600 dark:text-red-500 mr-1">{{ $req->blood_group }}</span>

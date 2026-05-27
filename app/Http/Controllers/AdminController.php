@@ -23,7 +23,7 @@ class AdminController extends Controller
 
     public function users(Request $request)
     {
-        $query = User::where('role', 'user');
+        $query = User::where('role', '!=', 'admin');
 
         if ($request->filled('search')) {
             $query->where(function($q) use ($request) {
