@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="public/build/assets/lifelink_logo_dark_1779819238479.png" alt="LifeLink Logo" width="300">
-</p>
-
-<h1 align="center">LifeLink — Privacy-First Blood Donation Platform</h1>
+<h1 align="center">🩸 LifeLink — Privacy-First Blood Donation Platform</h1>
 
 <p align="center">
   A next-generation, highly secure, and gamified blood donation network connecting donors, patients, and hospitals during critical and routine medical needs. Built with Laravel, MongoDB, and TailwindCSS.
