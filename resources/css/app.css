@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    /* ── Auth UI Components ── */
+    .auth-heading {
+        @apply text-3xl font-extrabold text-gray-900 dark:text-white mb-2 tracking-tight;
+    }
+    .auth-subheading {
+        @apply text-base text-gray-500 dark:text-gray-400 mb-8;
+    }
+    .auth-label {
+        @apply block text-sm font-bold text-gray-700 dark:text-gray-300 mb-1.5;
+    }
+    .auth-input {
+        @apply block w-full rounded-xl border border-gray-300 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-gray-100 shadow-sm focus:border-red-500 focus:ring-1 focus:ring-red-500 transition duration-200 py-2.5 text-sm;
+    }
+    select.auth-input option {
+        @apply dark:bg-gray-900 dark:text-white;
+    }
+    .form-group {
+        @apply mb-5;
+    }
+    .form-row {
+        @apply flex flex-col sm:flex-row gap-0 sm:gap-4;
+    }
+    .form-row > .form-group {
+        @apply flex-1;
+    }
+    .auth-btn {
+        @apply w-full flex justify-center py-3.5 px-4 border border-transparent rounded-xl shadow-md text-sm font-bold text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-all duration-300 mt-6 tracking-wide;
+    }
+    .auth-link-row {
+        @apply mt-6 text-center text-sm text-gray-600 dark:text-gray-400;
+    }
+    .auth-link {
+        @apply font-bold text-red-600 dark:text-red-400 hover:text-red-500 dark:hover:text-red-300 transition-colors underline-offset-2;
+    }
+    .field-error {
+        @apply text-red-500 text-xs font-semibold mt-1.5;
+    }
+    .label-row {
+        @apply flex justify-between items-center mb-1.5;
+    }
+    .forgot-link {
+        @apply text-xs font-semibold text-red-600 dark:text-red-400 hover:text-red-500 transition-colors;
+    }
+    .auth-checkbox-row {
+        @apply flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 cursor-pointer;
+    }
+    .radio-group-label {
+        @apply block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3;
+    }
+    .radio-options {
+        @apply flex flex-col sm:flex-row gap-3;
+    }
+    .radio-option {
+        @apply flex-1 flex items-center justify-center gap-2 p-3.5 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 cursor-pointer transition-all duration-200 font-semibold text-sm text-gray-600 dark:text-gray-300 hover:border-red-300 dark:hover:border-red-700;
+    }
+    .radio-option input[type="radio"] {
+        @apply sr-only;
+    }
+    .radio-option.selected {
+        @apply border-red-500 dark:border-red-500 bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400;
+    }
+    .session-status {
+        @apply mb-4 p-4 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-sm font-semibold text-green-700 dark:text-green-400;
+    }
+
+    .glass {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+    .dark .glass {
+        background: rgba(6, 6, 10, 0.85);
+    }
+}
+
